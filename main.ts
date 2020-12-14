@@ -6,11 +6,10 @@ input.onButtonPressed(Button.B, function () {
     pins.digitalWritePin(DigitalPin.P7, 0)
     // La valeur de 610 peut varier il faut l'ajuster en fonction de votre test lorsque un des deux fils n'est pas dans la terre.  SI la valeur de « reading » est de 540 pour vous, modifier toutes les valeurs de 610 pour 540 dans ce code.
     pourcentage = Math.round((reading - 610) * 100 / (1023 - 610))
-    basic.showString("" + pourcentage + "%")
+    basic.showString("H" + pourcentage + "%")
 })
 let pourcentage = 0
 let reading = 0
-led.setBrightness(50)
 servos.P2.setAngle(0)
 basic.pause(1000)
 servos.P2.stop()
@@ -35,6 +34,6 @@ basic.forever(function () {
     }
     basic.pause(1000)
     servos.P2.stop()
-    // 30 secondes (30 000 ms) avant la prochaine mesure.  On peut modifier le temps entre les prises de mesures.
-    basic.pause(30000)
+    // 1 heure (3 600 000 ms) avant la prochaine mesure.  On peut modifier le temps entre les prises de mesures.
+    basic.pause(3600000)
 })
